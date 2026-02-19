@@ -12,10 +12,8 @@ import juice from 'juice';
 
 
 
-export default function newsletterss({ newsletter }) {
+export default function newsletterss({ newsletter , slug }) {
     const router = useRouter()
-
-  
     const copyElem = () => {
       const element = document.getElementById('htmlContent');
       
@@ -452,16 +450,25 @@ a:visited {
     padding: 0 16px !important;
   }
 
-        .newsletter-container { padding: 12px !important; }
-      .newsletter-title { padding: 28px 16px 0 !important; }
-      .letter-text { padding: 16px !important; }
-      .about-company { padding: 20px 16px !important; }
-      .lets-talk-btn { padding: 0 16px 20px !important; width: 70% !important; }
-      .social-icons-cont { padding: 16px !important; width: 100% !important; }
-      .subscribe-cont { padding: 0 16px 40px !important; }
-      blockquote { width: 100% !important; }
-      .social-icons td { padding-right: 10px !important; }
-      .subscribe-cont p{ width: 80% !important;}
+  .newsletter-container { padding: 12px !important; }
+  .newsletter-title { padding: 28px 16px 0 !important; }
+  .letter-text { padding: 16px !important; }
+  .about-company { padding: 20px 16px !important; }
+  .lets-talk-btn { padding: 0 16px 0 !important; width: 70% !important; }
+  .social-icons-cont { padding: 16px !important; width: 100% !important; }
+  .subscribe-cont { padding: 20px 16px 40px !important; }
+  blockquote { width: 100% !important; }
+  .social-icons td { padding-right: 10px !important; }
+  .subscribe-cont p{ width: 100% !important;}
+
+  .mid-child {display:none !important}
+  .first-child, .last-child {width: 50% !important}
+  .last-child {text-align: right !important}
+  .midd-padding-zero { 
+    padding-top: 0!important;
+  }
+  .mobile-show {display: block !important;}
+  .mobile-margin{margin-bottom: 0 !important;}
 }
 `,
   }}
@@ -488,9 +495,11 @@ a:visited {
                                             <div style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 40, paddingRight: 30, paddingBottom: 0, paddingLeft: 30}} className="newsletter-title">
                                               <div style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
                                                 <p style={{fontSize: 38, lineHeight: 1, msoLineHeightAlt: 46, margin: 0}}>
-                                                  <span className="the-yellow-envelope" style={{fontSize: 40, lineHeight: 36+'px', marginBottom: 4}}>  
-                                                    <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="https://images.ctfassets.net/da6fwo03rafe/4EaxkFc0RvUfK9GFjs3Tdx/bf4954f69bc7118fe8665e084d169719/Frame_2147262969.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '138', maxWidth: 138, float: 'none', display: 'block'}} title="Image" width={172} />
-                                                  </span>
+                                                  <a href={`https://icd-india.com/scarlet-letter/${slug}`} tabIndex={-1} target="_blank">
+                                                    <span className="the-yellow-envelope" style={{fontSize: 40, lineHeight: 36+'px', marginBottom: 4}}>  
+                                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="https://images.ctfassets.net/da6fwo03rafe/4EaxkFc0RvUfK9GFjs3Tdx/bf4954f69bc7118fe8665e084d169719/Frame_2147262969.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '138', maxWidth: 138, float: 'none', display: 'block'}} title="Image" width={172} />
+                                                    </span>
+                                                  </a>
                                                 </p>
                                               </div>
                                             </div>
@@ -517,13 +526,11 @@ a:visited {
                         </div>
                       </div>
                       <div className="block-grid" style={{margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word'}}>
-                        <div className="col num12" style={{minWidth: 320, maxWidth: 650, display: 'table-cell', verticalAlign: 'top', width: 650}}>
+                        <div className="col num12" style={{minWidth: 320, maxWidth: 650, display: 'table-cell', verticalAlign: 'top', width: 650 , background: '#F4F1EA'}}>
                           <div style={{width: '100% !important'}}>
                             <div style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 0, paddingRight: 0, paddingLeft: 0}}> 
-                              <div className="letter-text" style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 30, paddingRight: 30, paddingBottom: 10, paddingLeft: 30 , background:'#F4F1EA'}}>
+                              <div className="letter-text" style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 30, paddingRight: 30, paddingBottom: 0, paddingLeft: 30 , background:'#F4F1EA'}}>
                                 <div style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontSize: 16, lineHeight: 25+'px', color: '#171717 !important'}}>
-                                  {/* <p style={{marginTop: '0'}}>{ `Dear {{contact.FIRSTNAME }} `}</p> */}
-                                  {/* <span dangerouslySetInnerHTML={{ __html: data.content }}></span> */}
                                   <div className='email-container'>
                                     {parse(content)}
                                   </div>
@@ -537,14 +544,45 @@ a:visited {
                       <div style={{backgroundColor: 'transparent'}}>
                         <div className="block-grid" style={{margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', backgroundColor: 'transparent'}}>
                           <div style={{borderCollapse: 'collapse', display: 'table', width: '100%', backgroundColor: 'transparent'}}>
+                            <div className="col num12" style={{minWidth: 320, maxWidth: 650, display: 'table-cell', verticalAlign: 'top', width: 650 , background: '#F4F1EA'}}>
+                              <div style={{width: '100% !important'}}>
+                                <div className="about-company midd-padding-zero" style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 16, paddingRight: 30, paddingLeft: 30, background: '#F4F1EA'}}>
+                                  <div className="about-company-text" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif', lineHeight: '1.2', paddingTop: 0, paddingBottom: 0}}>
+                                    <div style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14 , display: 'flex'}}>
+                                      <span className='first-child'>
+                                        <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="https://images.ctfassets.net/da6fwo03rafe/5W8FPsTIefK1xGAGObOLeA/d14f00352fe7335cdc84ff3e2c69fb8d/Frame_2147263006.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '88', maxWidth: 88, maxHeight: 40, height: '40', float: 'none', display: 'block'}} title="Image" width={172} />
+                                        <span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '400', fontSize: 9, lineHeight: 14+'px' , color: '#828282', fontStyle: 'italic'}}>midjourney + me</span>
+                                      </span>
+                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mid-child autowidth" src="https://images.ctfassets.net/da6fwo03rafe/6zjXSKPxiI9MFpO89ejJ3E/561351b9e7e696811db8d759d16a2bf0/Frame_2147263000.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '180', maxWidth: 180, float: 'none', display: 'block' , margin: '0 100px'}} title="Image" width={172} />
+                                        <div className='last-child'>
+                                          <span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#333' , display: 'block'}}>Why call it</span>
+                                          <span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#EB5757'}}>The Scarlet Letter</span>
+                                          <a href="https://icd-india.com/" tabIndex={-1} target="_blank" style={{display: 'block' , marginTop: 4}}> 
+                                            <span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '400', fontSize: 9, lineHeight: 14+'px' , color: '#333' , letterSpacing: 0.54+'px'}}>READ HERE</span>
+                                          </a>
+                                        </div>
+                                    </div>
+                                    <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mobile-show autowidth" src="https://images.ctfassets.net/da6fwo03rafe/6zjXSKPxiI9MFpO89ejJ3E/561351b9e7e696811db8d759d16a2bf0/Frame_2147263000.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', display: 'block', height: 'auto', border: 'none', width: '180', maxWidth: 100+ '%', float: 'none', display: 'none' , margin: '24px 0 0'}} title="Image" width={172} />
+                                  </div>
+                                  <hr class="wp-block-separator has-alpha-channel-opacity mobile-margin" style={{margin : '20px 0' , borderTop: '1px dotted #333'}}></hr>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div style={{backgroundColor: 'transparent'}}>
+                        <div className="block-grid" style={{margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', backgroundColor: 'transparent'}}>
+                          <div style={{borderCollapse: 'collapse', display: 'table', width: '100%', backgroundColor: 'transparent'}}>
                             <div className="col num12" style={{minWidth: 320, maxWidth: 650, display: 'table-cell', verticalAlign: 'top', width: 650}}>
                               <div style={{width: '100% !important'}}>
-                                <div className="about-company" style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 40, paddingRight: 30, paddingLeft: 30, background: '#F4F1EA'}}>
-                                  <div className="about-company-text" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif', lineHeight: '1.2', paddingTop: 0, paddingBottom: 0}}>
-                                    <div style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
-                                      <p style={{fontSize: 20, lineHeight: '1.2', msoLineHeightAlt: 24, margin: 0}}><span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 17, lineHeight: 27+'px'}}><strong>ICD brings powerful design and original thinking to make businesses succeed in the marketplace. It offers services in digital product design, branding, packaging and communication.</strong></span></p>
+                                <div className="about-company midd-padding-zero" style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 20, paddingRight: 30, paddingLeft: 30, background: '#F4F1EA'}}>
+                                    <div className="about-company-text" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif', lineHeight: '1.2', paddingTop: 0, paddingBottom: 0}}>
+                                      <div style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
+                                        <p style={{fontSize: 20, lineHeight: '1.2', msoLineHeightAlt: 24, margin: 0}}><span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 17, lineHeight: 27+'px'}}><strong>ICD brings powerful design and original thinking to make businesses succeed in the marketplace. It offers services in digital product design, branding, packaging and communication.</strong></span></p>
+                                      </div>
                                     </div>
-                                  </div>
+                                  <hr class="wp-block-separator has-alpha-channel-opacity" style={{margin : '20px 0' , borderTop: '1px dotted #333'}}></hr>
                                 </div>
                               </div>
                             </div>
@@ -594,17 +632,17 @@ a:visited {
                                 </div>
                               </div>
                             </div>
-                                      <div className="col num6" style={{display: 'table-cell', verticalAlign: 'top',}}>
-                                        <div style={{width: '100% !important'}}>
-                                          <div style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 5, paddingRight: 0, paddingLeft: 0}}>
-                                            <div className="subscribe-cont" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 0, paddingRight: 30, paddingBottom: 0, paddingLeft: 0}}>
-                                              <div style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
-                                                <p style={{ fontFamily: 'Merriweather,Times,Times New Roman,serif' ,fontSize: 12, lineHeight: 16+'px', msoLineHeightAlt: 17, margin: 0 , width: 410+'px'}}>You are receiving this newsletter because you have subscribed or have been recommended by a friend. If you'd like to add new subscribers, please click <a href="https://icdindia.com/newsletter-subscription/">here</a>.<br /> And to unfollow, please click on the unsubscribe link below.</p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                            <div className="col num6" style={{display: 'table-cell', verticalAlign: 'top',}}>
+                              <div style={{width: '100% !important'}}>
+                                <div style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 5, paddingRight: 0, paddingLeft: 0}}>
+                                  <div className="subscribe-cont" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 0, paddingRight: 30, paddingBottom: 0, paddingLeft: 0}}>
+                                    <div style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
+                                      <p style={{ fontFamily: 'Merriweather,Times,Times New Roman,serif' ,fontSize: 12, lineHeight: 16+'px', msoLineHeightAlt: 17, margin: 0 , width: 410+'px'}}>You are receiving this newsletter because you have subscribed or have been recommended by a friend. If you'd like to add new subscribers, please click <a href="https://icd-india.com/newsletter-subscription" tabIndex={-1} target="_blank">here</a>.<br /> And to unfollow, please click on the unsubscribe link below.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -621,47 +659,50 @@ a:visited {
           
       </>
     )
-  }
+}
+
+
   
-  export async function getServerSideProps({ params }) {
-    const article = await getArticle(params.slug)
-    const rawContent = article.newsletter?.content ?? '';
+export async function getServerSideProps({ params }) {
+  const article = await getArticle(params.slug)
+  const rawContent = article.newsletter?.content ?? '';
 
-    const emailStyles = `
-      <style>
-        body { margin: 0; padding: 0; }
-        hr { margin: 20px 0; border-top: 1px dotted #333; }
-        b, strong { font-weight: bold !important; }
-        blockquote { margin: 0; width: 350px; margin-left: auto; margin-right: auto; }
-        blockquote p { margin: 0; }
-        img { width: 100%; height: auto; }
-        table img { display: block; width: 100%; }
-        ul { margin: 0 }
-        table, td, tr { vertical-align: top; border-collapse: collapse; }
-        p {font-size: 16px; line-height: 27px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; margin-top: 8px; margin-bottom: 0; font-weight:400 }
-        h2 { font-size: 18px; line-height: 25px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 12px 0 0; }
-        li { font-size: 16px; line-height: 27px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; }
-        blockquote p em { font-size: 24px; line-height: 31px; color: #333; letter-spacing: -0.24px; }
-        strong, b { font-weight: bold; }
-        figure { margin: 0; }
-        ul {margin: 0}
-        figure img { width: 100%; height: auto; display: block; }
-        p code { display: table;font-style: italic; font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin-top: 22px; margin-bottom: 22px;  }
-      </style>
-    `;
+  const emailStyles = `
+    <style>
+      body { margin: 0; padding: 0; }
+      hr { margin: 20px 0; border-top: 1px dotted #333; }
+      b, strong { font-weight: bold !important; }
+      blockquote { margin: 0; width: 350px; margin-left: auto; margin-right: auto; }
+      blockquote p { margin: 0; }
+      img { width: 100%; height: auto; }
+      table img { display: block; width: 100%; }
+      ul { margin: 0 }
+      table, td, tr { vertical-align: top; border-collapse: collapse; }
+      p {font-size: 16px; line-height: 27px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; margin-top: 8px; margin-bottom: 0; font-weight:400 }
+      h2 { font-size: 18px; line-height: 25px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 12px 0 0; }
+      li { font-size: 16px; line-height: 27px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; }
+      blockquote p em { font-size: 24px; line-height: 31px; color: #333; letter-spacing: -0.24px; }
+      strong, b { font-weight: bold; }
+      figure { margin: 0; }
+      ul {margin: 0}
+      figure img { width: 100%; height: auto; display: block; }
+      p code { display: table;font-style: italic; font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin-top: 22px; margin-bottom: 22px;  }
+    </style>
+  `;
 
- 
 
-    const inlinedContent = juice(emailStyles + rawContent);
-    // mediaQueries appended after — not touched by juice
-    // const finalHtml = mediaQueries + inlinedContent;
-    return {
-      props: { 
-         newsletter: {
-          ...article.newsletter,
-          content: inlinedContent  // ✅ styles already inlined
-        },
+
+  const inlinedContent = juice(emailStyles + rawContent);
+  // mediaQueries appended after — not touched by juice
+  // const finalHtml = mediaQueries + inlinedContent;
+  return {
+    props: { 
+        slug: params.slug,   // 👈 pass it here
+        newsletter: {
+        ...article.newsletter,
+        content: inlinedContent  // ✅ styles already inlined
       },
-      // revalidate: 2, 
-    }
+    },
+    // revalidate: 2, 
   }
+}

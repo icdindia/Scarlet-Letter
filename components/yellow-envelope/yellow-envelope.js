@@ -55,14 +55,14 @@ export default function yellowEnvelop({ edges }) {
                         return (
                             <div className="col-md-4 col-lg- grid-item" key={node.id}>
                                 <div className={`${style.postsItems} animateItems}`}>
-                                    <Link href={`/yellow-envelope/${node.slug}`}>
+                                    <Link href={`/scarlet-letter/${node.slug}`}>
                                         <h2 className={style.postTitle}>{node.title}</h2>
                                         <span className={style.postBy}> {date}  </span>
                                         <div className={style.postInfo}> <p> {parse(content)} </p> </div>
                                     </Link>
                                     <div className="row">
                                         <div className="col-6">
-                                            <Link href={`/yellow-envelope/${node.slug}`} legacyBehavior>
+                                            <Link href={`/scarlet-letter/${node.slug}`} legacyBehavior>
                                                 <button>read letter</button>
                                             </Link>
                                         </div>
