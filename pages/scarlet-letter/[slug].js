@@ -236,6 +236,15 @@ blockquote p em {
     display: block !important;
 }
 
+.read-here-link{
+  font-family: Merriweather, Times, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 14px;
+  color: rgb(51, 51, 51);
+  letter-spacing: 0.54px;
+}
+
 .end-text-bold{
   font-family: Merriweather, Times, "Times New Roman", serif !important;
   font-weight: 700 !important;
@@ -648,7 +657,7 @@ a:visited {
                                         <div className='last-child'>
                                           <span className='end-text' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#333' , display: 'block'}}>Why call it</span>
                                           <span className='end-text end-text-bold' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#EB5757'}}>The Scarlet Letter</span>
-                                          <a href="https://icd-india.com/" tabIndex={-1} target="_blank" style={{display: 'block' , marginTop: 4}}> 
+                                          <a className="read-here-link" href="https://icd-india.com/" tabIndex={-1} target="_blank" style={{display: 'block' , marginTop: 4}}> 
                                             <span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '400', fontSize: 9, lineHeight: 14+'px' , color: '#333' , letterSpacing: 0.54+'px'}}>READ HERE</span>
                                           </a>
                                         </div>
