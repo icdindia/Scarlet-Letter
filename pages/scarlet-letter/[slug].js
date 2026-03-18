@@ -29,6 +29,8 @@ export default function newsletterss({ newsletter , slug }) {
         return <div>Loading...</div>
     }
 
+  const handDrawn = newsletter?.featuredImage?.node?.sourceUrl
+
     var newsletterContent = newsletter?.content
     if(newsletterContent){
         var content = newsletterContent
@@ -653,7 +655,7 @@ a:visited {
                                         <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="https://images.ctfassets.net/da6fwo03rafe/5W8FPsTIefK1xGAGObOLeA/d14f00352fe7335cdc84ff3e2c69fb8d/Frame_2147263006.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '88', maxWidth: 88, maxHeight: 40, height: '40', float: 'none', display: 'block'}} title="Image" width={172} />
                                         <span className='img-bottom' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '400', fontSize: 9, lineHeight: 14+'px' , color: '#828282', fontStyle: 'italic'}}>midjourney + me</span>
                                       </span>
-                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mid-child autowidth" src="https://images.ctfassets.net/da6fwo03rafe/6zjXSKPxiI9MFpO89ejJ3E/561351b9e7e696811db8d759d16a2bf0/Frame_2147263000.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '180', maxWidth: 180, float: 'none', display: 'block' , margin: '0 100px'}} title="Image" width={172} />
+                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mid-child autowidth" src={handDrawn} style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '180', maxWidth: 180, float: 'none', display: 'block' , margin: '0 100px'}} title="Image" width={172} />
                                         <div className='last-child'>
                                           <span className='end-text' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#333' , display: 'block'}}>Why call it</span>
                                           <span className='end-text end-text-bold' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#EB5757'}}>The Scarlet Letter</span>
@@ -662,7 +664,7 @@ a:visited {
                                           </a>
                                         </div>
                                     </div>
-                                    <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mobile-show autowidth" src="https://images.ctfassets.net/da6fwo03rafe/6zjXSKPxiI9MFpO89ejJ3E/561351b9e7e696811db8d759d16a2bf0/Frame_2147263000.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', display: 'block', height: 'auto', border: 'none', width: '180', maxWidth: 100+ '%', float: 'none', display: 'none' , margin: '24px 0 0'}} title="Image" width={172} />
+                                    <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mobile-show autowidth" src={handDrawn} style={{textDecoration: 'none', msInterpolationMode: 'bicubic', display: 'block', height: 'auto', border: 'none', width: '180', maxWidth: 100+ '%', float: 'none', display: 'none' , margin: '24px 0 0'}} title="Image" width={172} />
                                   </div>
                                   <hr class="wp-block-separator has-alpha-channel-opacity mobile-margin" style={{margin : '20px 0' , borderTop: '1px dotted #333'}}></hr>
                                 </div>
