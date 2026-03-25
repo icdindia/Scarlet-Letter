@@ -30,6 +30,7 @@ export default function newsletterss({ newsletter , slug }) {
     }
 
   const handDrawn = newsletter?.featuredImage?.node?.sourceUrl
+  const Logo = newsletter?.newsletterLogo?.logo?.sourceUrl
 
     var newsletterContent = newsletter?.content
     if(newsletterContent){
@@ -599,7 +600,7 @@ a:visited {
                                                 <p style={{fontSize: 38, lineHeight: 1, msoLineHeightAlt: 46, margin: 0}}>
                                                   <a href={`https://icd-india.com/scarlet-letter/${slug}`} tabIndex={-1} target="_blank">
                                                     <span className="the-yellow-envelope" style={{fontSize: 40, lineHeight: 36+'px', marginBottom: 4}}>  
-                                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="https://images.ctfassets.net/da6fwo03rafe/4EaxkFc0RvUfK9GFjs3Tdx/bf4954f69bc7118fe8665e084d169719/Frame_2147262969.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '138', maxWidth: 138, float: 'none', display: 'block'}} title="Image" width={172} />
+                                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src={Logo} style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '138', maxWidth: 138, float: 'none', display: 'block'}} title="Image" width={172} />
                                                     </span>
                                                   </a>
                                                 </p>
