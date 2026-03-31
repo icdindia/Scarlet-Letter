@@ -1,63 +1,63 @@
-import parse from 'html-react-parser';
-import { getArticle  } from '../../lib/api'
-import { useRouter } from 'next/router'
-import $ from 'jquery';
-import { useEffect } from 'react';
-import juice from 'juice';
+import parse from "html-react-parser";
+import { getArticle } from "../../lib/api";
+import { useRouter } from "next/router";
+import $ from "jquery";
+import { useEffect } from "react";
+import juice from "juice";
 // import Comment from '../../components/comment'
 
+export default function newsletterss({ newsletter, slug }) {
+  const router = useRouter();
+  const copyElem = () => {
+    const element = document.getElementById("htmlContent");
 
+    const finalHtml = element.outerHTML;
 
+    navigator.clipboard.writeText(finalHtml).then(() => {
+      alert("Copied!");
+    });
+  };
 
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
 
+  const handDrawn = newsletter?.featuredImage?.node?.sourceUrl;
+  const Logo = newsletter?.newsletterLogo?.logo?.sourceUrl;
 
+  var newsletterContent = newsletter?.content;
+  if (newsletterContent) {
+    var content = newsletterContent;
+  } else {
+    content = "";
+  }
 
-export default function newsletterss({ newsletter , slug }) {
-    const router = useRouter()
-    const copyElem = () => {
-      const element = document.getElementById('htmlContent');
-      
-      
-      const finalHtml = element.outerHTML;
-      
-      navigator.clipboard.writeText(finalHtml).then(() => {
-        alert('Copied!');
-      });
-    };
+  useEffect(() => {
+    $("figure").css("margin", 0);
+    $("figure img").css({ width: "100%", height: "auto" });
+  }, []);
 
-    if (router.isFallback) {
-        return <div>Loading...</div>
-    }
-
-  const handDrawn = newsletter?.featuredImage?.node?.sourceUrl
-  const Logo = newsletter?.newsletterLogo?.logo?.sourceUrl
-
-    var newsletterContent = newsletter?.content
-    if(newsletterContent){
-        var content = newsletterContent
-    }else{
-      content = ''
-    }
-
-    useEffect(() => {
-      $('figure').css('margin', 0)
-      $('figure img').css({'width': '100%' , 'height':  'auto'})
-    }, []);
-
-    return (
-      <>
-          <div id="htmlContent">
-     
-      <head>
-      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta content="width=device-width" name="viewport" />
-        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet" type="text/css" />
-<style
-  type="text/css"
-  dangerouslySetInnerHTML={{
-    __html: `
+  return (
+    <>
+      <div id="htmlContent">
+        <head>
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta content="width=device-width" name="viewport" />
+          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+            rel="stylesheet"
+            type="text/css"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+            rel="stylesheet"
+            type="text/css"
+          />
+          <style
+            type="text/css"
+            dangerouslySetInnerHTML={{
+              __html: `
     /* cyrillic-ext */
 @font-face {
   font-family: 'Merriweather';
@@ -183,17 +183,26 @@ blockquote p {
 }
 
 h2 {
-  margin: 12px 0 0;
-  font-size: 18px;
-  line-height: 25px;
+  margin: 24px 0 0;
+  font-size: 17px;
+  line-height: 160%;
   font-family: Merriweather, Times, "Times New Roman", serif;
   color: rgb(51, 51, 51);
+}
+
+h3 {
+  margin: 24px 0 0;
+  font-size: 17px;
+  line-height: 160%;
+  font-family: Merriweather, Times, "Times New Roman", serif;
+  color: rgb(51, 51, 51);
+  height: 22px;
 }
 
 p {
   margin: 8px 0 0;
   font-size: 16px;
-  line-height: 27px;
+  line-height: 24px;
   font-family: Merriweather, Times, "Times New Roman", serif;
   color: rgb(23, 23, 23);
   font-weight: 400;
@@ -212,7 +221,7 @@ p code {
 
 li{
   font-size: 16px;
-  line-height: 27px;
+  line-height: 24px;
   font-family: Merriweather, Times, "Times New Roman", serif;
   color: rgb(23, 23, 23);
 }
@@ -323,14 +332,14 @@ a[x-apple-data-detectors="true"] {
   color: inherit !important;
 }
 `,
-  }}
-/>
+            }}
+          />
 
-<style
-  id="media-query"
-  type="text/css"
-  dangerouslySetInnerHTML={{
-    __html: `
+          <style
+            id="media-query"
+            type="text/css"
+            dangerouslySetInnerHTML={{
+              __html: `
 .cfs-hyperlink {
   font-style: italic !important;
   font-size: 16px !important;
@@ -578,232 +587,1126 @@ a:visited {
   .mobile-margin{margin-bottom: 0 !important;}
 }
 `,
-  }}
-/>
+            }}
+          />
+        </head>
 
-
-      </head>
-
-            <body className="clean-body" style={{margin: 0, padding: 0, WebkitTextSizeAdjust: '100%'}}>
-              <table background="https://images.ctfassets.net/d3a4e93836in/1kdZ2WvHYl9jF2zRer42LU/9f247405542b9f0e9b835382084eb20c/Desktop_-_6.png"  cellPadding={0} cellSpacing={0} className="nl-container" role="presentation" style={{tableLayout: 'fixed', verticalAlign: 'top', minWidth: 320, margin: '0 auto', borderSpacing: 0, borderCollapse: 'collapse', msoTableLspace: '0pt', msoTableRspace: '0pt',  width: '100%'}} valign="top" width="100%">
-                <tbody>
-                  <tr style={{verticalAlign: 'top'}} valign="top">
-                    <td style={{wordBreak: 'break-word', verticalAlign: 'top' , padding: '20px 0 90px 0'}} valign="top" className="newsletter-container">
-                      <div style={{backgroundColor: 'transparent'}} className="banner-cont">
-                        <div className="block-grid two-up" style={{position: 'relative', margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', backgroundColor: '#F4F1EA'}}>
-                          <div style={{borderCollapse: 'collapse', display: 'table', width: '100%', backgroundColor: 'transparent'}}>
-                                      <div className="col num6 title-cont" style={{maxWidth: 320, minWidth: 300, display: 'table-cell', verticalAlign: 'top', width: 300}}>
-                                        <div style={{width: '100% !important'}}>
-                                          <div style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 40, paddingBottom: 5, paddingRight: 30, paddingLeft: 30}}>
-                                            <div style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 40, paddingRight: 30, paddingBottom: 0, paddingLeft: 30}} className="newsletter-title">
-                                              <div style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
-                                                <p style={{fontSize: 38, lineHeight: 1, msoLineHeightAlt: 46, margin: 0}}>
-                                                  <a href={`https://icd-india.com/scarlet-letter/${slug}`} tabIndex={-1} target="_blank">
-                                                    <span className="the-yellow-envelope" style={{fontSize: 40, lineHeight: 36+'px', marginBottom: 4}}>  
-                                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src={Logo} style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '138', maxWidth: 138, float: 'none', display: 'block'}} title="Image" width={172} />
-                                                    </span>
-                                                  </a>
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    <div className="col num6 logo-cont" style={{maxWidth: 320, minWidth: 300, display: 'table-cell', verticalAlign: 'top', width: 300}}>
-                                      <div style={{width: '100% !important'}}>
-                                        <div className='iconWrapper' style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 40, paddingBottom: 5, paddingRight: 30, paddingLeft: 30}}>
-                                          <div className="mobile_hide">
-                                            <div align="right" className="img-container right autowidth" style={{paddingRight: 0, paddingLeft: 0}}>
-                                              <a href="https://www.icdindia.com" tabIndex={-1} target="_blank"> <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="https://images.ctfassets.net/da6fwo03rafe/4Tv7hpgKghXki0lHZGty22/77eaa58963bdee80e3f5fffcd34cec11/Group.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '100%', maxWidth: 42, float: 'none', display: 'block'}} title="Image" width={172} /></a>
-                                            </div>
-                                          </div>
-                                          <div className="desktop_hide mobile-logo" style={{msoHide: 'all', display: 'none', maxHeight: 0, overflow: 'hidden'}}>
-                                            <div align="right" className="img-container right autowidth" style={{paddingRight: 0, paddingLeft: 0}}>
-                                              <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="http://icdlabs.in/icd-blog/wp-content/themes/kotha/assets/images/logo_red_mob.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', border: 0, height: 'auto', width: '100%', maxWidth: 54, float: 'none', display: 'block'}} title="Image" width={54} />
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                        </div>
-                        </div>
-                      </div>
-                      <div className="block-grid" style={{margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word'}}>
-                        <div className="col num12" style={{minWidth: 320, maxWidth: 650, display: 'table-cell', verticalAlign: 'top', width: 650 , background: '#F4F1EA'}}>
-                          <div style={{width: '100% !important'}}>
-                            <div className='letter-upper-body' style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 30, paddingBottom: 0, paddingRight: 30, paddingLeft: 30}}> 
-                              <div className="letter-text" style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 30, paddingRight: 30, paddingBottom: 0, paddingLeft: 30 , background:'#F4F1EA'}}>
-                                <div style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontSize: 16, lineHeight: 25+'px', color: '#171717 !important'}}>
-                                  <div className='email-container'>
-                                    {parse(content)}
-                                  </div>
-                                  
-                                </div>
-                              </div>
-                            </div> 
-                          </div>
-                        </div>
-                      </div>
-                      <div style={{backgroundColor: 'transparent'}}>
-                        <div className="block-grid" style={{margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', backgroundColor: 'transparent'}}>
-                          <div style={{borderCollapse: 'collapse', display: 'table', width: '100%', backgroundColor: 'transparent'}}>
-                            <div className="col num12" style={{minWidth: 320, maxWidth: 650, display: 'table-cell', verticalAlign: 'top', width: 650 , background: '#F4F1EA'}}>
-                              <div style={{width: '100% !important'}}>
-                                <div className="about-company midd-padding-zero" style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 16, paddingRight: 30, paddingLeft: 30, background: '#F4F1EA'}}>
-                                  <div className="about-company-text" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif', lineHeight: '1.2', paddingTop: 0, paddingBottom: 0}}>
-                                    <div className='bottom-row' style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14 , display: 'flex'}}>
-                                      <span className='first-child'>
-                                        <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right autowidth" src="https://images.ctfassets.net/da6fwo03rafe/5W8FPsTIefK1xGAGObOLeA/d14f00352fe7335cdc84ff3e2c69fb8d/Frame_2147263006.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '88', maxWidth: 88, maxHeight: 40, height: '40', float: 'none', display: 'block'}} title="Image" width={172} />
-                                        <span className='img-bottom' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '400', fontSize: 9, lineHeight: 14+'px' , color: '#828282', fontStyle: 'italic'}}>midjourney + me</span>
+        <body
+          className="clean-body"
+          style={{ margin: 0, padding: 0, WebkitTextSizeAdjust: "100%" }}
+        >
+          <table
+            background="https://images.ctfassets.net/d3a4e93836in/1kdZ2WvHYl9jF2zRer42LU/9f247405542b9f0e9b835382084eb20c/Desktop_-_6.png"
+            cellPadding={0}
+            cellSpacing={0}
+            className="nl-container"
+            role="presentation"
+            style={{
+              tableLayout: "fixed",
+              verticalAlign: "top",
+              minWidth: 320,
+              margin: "0 auto",
+              borderSpacing: 0,
+              borderCollapse: "collapse",
+              msoTableLspace: "0pt",
+              msoTableRspace: "0pt",
+              width: "100%",
+            }}
+            valign="top"
+            width="100%"
+          >
+            <tbody>
+              <tr style={{ verticalAlign: "top" }} valign="top">
+                <td
+                  style={{
+                    wordBreak: "break-word",
+                    verticalAlign: "top",
+                    padding: "20px 0 90px 0",
+                  }}
+                  valign="top"
+                  className="newsletter-container"
+                >
+                  <div
+                    style={{ backgroundColor: "transparent" }}
+                    className="banner-cont"
+                  >
+                    <div
+                      className="block-grid two-up"
+                      style={{
+                        position: "relative",
+                        margin: "0 auto",
+                        minWidth: 320,
+                        maxWidth: 650,
+                        overflowWrap: "break-word",
+                        wordWrap: "break-word",
+                        wordBreak: "break-word",
+                        backgroundColor: "#F4F1EA",
+                      }}
+                    >
+                      <div
+                        style={{
+                          borderCollapse: "collapse",
+                          display: "table",
+                          width: "100%",
+                          backgroundColor: "transparent",
+                        }}
+                      >
+                        <div
+                          className="col num6 title-cont"
+                          style={{
+                            maxWidth: 320,
+                            minWidth: 300,
+                            display: "table-cell",
+                            verticalAlign: "top",
+                            width: 300,
+                          }}
+                        >
+                          <div style={{ width: "100% !important" }}>
+                            <div
+                              style={{
+                                borderTop: "0px solid transparent",
+                                borderLeft: "0px solid transparent",
+                                borderBottom: "0px solid transparent",
+                                borderRight: "0px solid transparent",
+                                paddingTop: 40,
+                                paddingBottom: 5,
+                                paddingRight: 30,
+                                paddingLeft: 30,
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#171717",
+                                  fontFamily:
+                                    "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                                  lineHeight: "1.2",
+                                  paddingTop: 40,
+                                  paddingRight: 30,
+                                  paddingBottom: 0,
+                                  paddingLeft: 30,
+                                }}
+                                className="newsletter-title"
+                              >
+                                <div
+                                  style={{
+                                    fontFamily:
+                                      "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                                    fontSize: 12,
+                                    lineHeight: "1.2",
+                                    color: "#171717",
+                                    msoLineHeightAlt: 14,
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      fontSize: 38,
+                                      lineHeight: 1,
+                                      msoLineHeightAlt: 46,
+                                      margin: 0,
+                                    }}
+                                  >
+                                    <a
+                                      href={`https://icd-india.com/scarlet-letter/${slug}`}
+                                      tabIndex={-1}
+                                      target="_blank"
+                                    >
+                                      <span
+                                        className="the-yellow-envelope"
+                                        style={{
+                                          fontSize: 40,
+                                          lineHeight: 36 + "px",
+                                          marginBottom: 4,
+                                        }}
+                                      >
+                                        <img
+                                          loading="lazy"
+                                          decoding="async"
+                                          align="right"
+                                          alt="Image"
+                                          border={0}
+                                          className="right autowidth"
+                                          src={Logo}
+                                          style={{
+                                            textDecoration: "none",
+                                            msInterpolationMode: "bicubic",
+                                            height: "auto",
+                                            border: "none",
+                                            width: "138",
+                                            maxWidth: 138,
+                                            float: "none",
+                                            display: "block",
+                                          }}
+                                          title="Image"
+                                          width={172}
+                                        />
                                       </span>
-                                      <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mid-child autowidth" src={handDrawn} style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', width: '180', maxWidth: 180, float: 'none', display: 'block' , margin: '0 100px'}} title="Image" width={172} />
-                                        <div className='last-child'>
-                                          <span className='end-text' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#333' , display: 'block'}}>Why call it</span>
-                                          <span className='end-text end-text-bold' style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 12, lineHeight: 19+'px' , color: '#EB5757'}}>The Scarlet Letter</span>
-                                          <a className="read-here-link" href="https://icd-india.com/" tabIndex={-1} target="_blank" style={{display: 'block' , marginTop: 4}}> 
-                                            <span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '400', fontSize: 9, lineHeight: 14+'px' , color: '#333' , letterSpacing: 0.54+'px'}}>READ HERE</span>
-                                          </a>
-                                        </div>
-                                    </div>
-                                    <img loading="lazy" decoding="async" align="right" alt="Image" border={0} className="right mobile-show autowidth" src={handDrawn} style={{textDecoration: 'none', msInterpolationMode: 'bicubic', display: 'block', height: 'auto', border: 'none', width: '180', maxWidth: 100+ '%', float: 'none', display: 'none' , margin: '24px 0 0'}} title="Image" width={172} />
-                                  </div>
-                                  <hr class="wp-block-separator has-alpha-channel-opacity mobile-margin" style={{margin : '20px 0' , borderTop: '1px dotted #333'}}></hr>
+                                    </a>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col num6 logo-cont"
+                          style={{
+                            maxWidth: 320,
+                            minWidth: 300,
+                            display: "table-cell",
+                            verticalAlign: "top",
+                            width: 300,
+                          }}
+                        >
+                          <div style={{ width: "100% !important" }}>
+                            <div
+                              className="iconWrapper"
+                              style={{
+                                borderTop: "0px solid transparent",
+                                borderLeft: "0px solid transparent",
+                                borderBottom: "0px solid transparent",
+                                borderRight: "0px solid transparent",
+                                paddingTop: 40,
+                                paddingBottom: 5,
+                                paddingRight: 30,
+                                paddingLeft: 30,
+                              }}
+                            >
+                              <div className="mobile_hide">
+                                <div
+                                  align="right"
+                                  className="img-container right autowidth"
+                                  style={{ paddingRight: 0, paddingLeft: 0 }}
+                                >
+                                  <a
+                                    href="https://www.icdindia.com"
+                                    tabIndex={-1}
+                                    target="_blank"
+                                  >
+                                    {" "}
+                                    <img
+                                      loading="lazy"
+                                      decoding="async"
+                                      align="right"
+                                      alt="Image"
+                                      border={0}
+                                      className="right autowidth"
+                                      src="https://images.ctfassets.net/da6fwo03rafe/4Tv7hpgKghXki0lHZGty22/77eaa58963bdee80e3f5fffcd34cec11/Group.png"
+                                      style={{
+                                        textDecoration: "none",
+                                        msInterpolationMode: "bicubic",
+                                        height: "auto",
+                                        border: "none",
+                                        width: "100%",
+                                        maxWidth: 42,
+                                        float: "none",
+                                        display: "block",
+                                      }}
+                                      title="Image"
+                                      width={172}
+                                    />
+                                  </a>
+                                </div>
+                              </div>
+                              <div
+                                className="desktop_hide mobile-logo"
+                                style={{
+                                  msoHide: "all",
+                                  display: "none",
+                                  maxHeight: 0,
+                                  overflow: "hidden",
+                                }}
+                              >
+                                <div
+                                  align="right"
+                                  className="img-container right autowidth"
+                                  style={{ paddingRight: 0, paddingLeft: 0 }}
+                                >
+                                  <img
+                                    loading="lazy"
+                                    decoding="async"
+                                    align="right"
+                                    alt="Image"
+                                    border={0}
+                                    className="right autowidth"
+                                    src="http://icdlabs.in/icd-blog/wp-content/themes/kotha/assets/images/logo_red_mob.png"
+                                    style={{
+                                      textDecoration: "none",
+                                      msInterpolationMode: "bicubic",
+                                      border: 0,
+                                      height: "auto",
+                                      width: "100%",
+                                      maxWidth: 54,
+                                      float: "none",
+                                      display: "block",
+                                    }}
+                                    title="Image"
+                                    width={54}
+                                  />
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div style={{backgroundColor: 'transparent'}}>
-                        <div className="block-grid" style={{margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', backgroundColor: 'transparent'}}>
-                          <div style={{borderCollapse: 'collapse', display: 'table', width: '100%', backgroundColor: 'transparent'}}>
-                            <div className="col num12" style={{minWidth: 320, maxWidth: 650, display: 'table-cell', verticalAlign: 'top', width: 650}}>
-                              <div style={{width: '100% !important'}}>
-                                <div className="about-company midd-padding-zero" style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 20, paddingRight: 30, paddingLeft: 30, background: '#F4F1EA'}}>
-                                    <div className="about-company-text" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif', lineHeight: '1.2', paddingTop: 0, paddingBottom: 0}}>
-                                      <div style={{fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
-                                        <p style={{fontSize: 20, lineHeight: '1.2', msoLineHeightAlt: 24, margin: 0}}><span style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontWeight: '700', fontSize: 17, lineHeight: 27+'px'}}><strong>ICD brings powerful design and original thinking to make businesses succeed in the marketplace. It offers services in digital product design, branding, packaging and communication.</strong></span></p>
-                                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="block-grid"
+                    style={{
+                      margin: "0 auto",
+                      minWidth: 320,
+                      maxWidth: 650,
+                      overflowWrap: "break-word",
+                      wordWrap: "break-word",
+                      wordBreak: "break-word",
+                    }}
+                  >
+                    <div
+                      className="col num12"
+                      style={{
+                        minWidth: 320,
+                        maxWidth: 650,
+                        display: "table-cell",
+                        verticalAlign: "top",
+                        width: 650,
+                        background: "#F4F1EA",
+                      }}
+                    >
+                      <div style={{ width: "100% !important" }}>
+                        <div
+                          className="letter-upper-body"
+                          style={{
+                            borderTop: "0px solid transparent",
+                            borderLeft: "0px solid transparent",
+                            borderBottom: "0px solid transparent",
+                            borderRight: "0px solid transparent",
+                            paddingTop: 30,
+                            paddingBottom: 0,
+                            paddingRight: 30,
+                            paddingLeft: 30,
+                          }}
+                        >
+                          <div
+                            className="letter-text"
+                            style={{
+                              fontFamily:
+                                "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                              lineHeight: "1.2",
+                              paddingTop: 30,
+                              paddingRight: 30,
+                              paddingBottom: 0,
+                              paddingLeft: 30,
+                              background: "#F4F1EA",
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontFamily:
+                                  "Merriweather,Times,Times New Roman,serif",
+                                fontSize: 16,
+                                lineHeight: 25 + "px",
+                                color: "#171717 !important",
+                              }}
+                            >
+                              <div className="email-container">
+                                {parse(content)}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ backgroundColor: "transparent" }}>
+                    <div
+                      className="block-grid"
+                      style={{
+                        margin: "0 auto",
+                        minWidth: 320,
+                        maxWidth: 650,
+                        overflowWrap: "break-word",
+                        wordWrap: "break-word",
+                        wordBreak: "break-word",
+                        backgroundColor: "transparent",
+                      }}
+                    >
+                      <div
+                        style={{
+                          borderCollapse: "collapse",
+                          display: "table",
+                          width: "100%",
+                          backgroundColor: "transparent",
+                        }}
+                      >
+                        <div
+                          className="col num12"
+                          style={{
+                            minWidth: 320,
+                            maxWidth: 650,
+                            display: "table-cell",
+                            verticalAlign: "top",
+                            width: 650,
+                            background: "#F4F1EA",
+                          }}
+                        >
+                          <div style={{ width: "100% !important" }}>
+                            <div
+                              className="about-company midd-padding-zero"
+                              style={{
+                                borderTop: "0px solid transparent",
+                                borderLeft: "0px solid transparent",
+                                borderBottom: "0px solid transparent",
+                                borderRight: "0px solid transparent",
+                                paddingTop: 0,
+                                paddingBottom: 16,
+                                paddingRight: 30,
+                                paddingLeft: 30,
+                                background: "#F4F1EA",
+                              }}
+                            >
+                              <div
+                                className="about-company-text"
+                                style={{
+                                  color: "#171717",
+                                  fontFamily:
+                                    '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+                                  lineHeight: "1.2",
+                                  paddingTop: 0,
+                                  paddingBottom: 0,
+                                }}
+                              >
+                                <div
+                                  className="bottom-row"
+                                  style={{
+                                    fontFamily:
+                                      "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                                    fontSize: 12,
+                                    lineHeight: "1.2",
+                                    color: "#171717",
+                                    msoLineHeightAlt: 14,
+                                    display: "flex",
+                                  }}
+                                >
+                                  <span className="first-child">
+                                    <img
+                                      loading="lazy"
+                                      decoding="async"
+                                      align="right"
+                                      alt="Image"
+                                      border={0}
+                                      className="right autowidth"
+                                      src="https://images.ctfassets.net/da6fwo03rafe/5W8FPsTIefK1xGAGObOLeA/d14f00352fe7335cdc84ff3e2c69fb8d/Frame_2147263006.png"
+                                      style={{
+                                        textDecoration: "none",
+                                        msInterpolationMode: "bicubic",
+                                        height: "auto",
+                                        border: "none",
+                                        width: "88",
+                                        maxWidth: 88,
+                                        maxHeight: 40,
+                                        height: "40",
+                                        float: "none",
+                                        display: "block",
+                                      }}
+                                      title="Image"
+                                      width={172}
+                                    />
+                                    <span
+                                      className="img-bottom"
+                                      style={{
+                                        fontFamily:
+                                          "Merriweather,Times,Times New Roman,serif",
+                                        fontWeight: "400",
+                                        fontSize: 9,
+                                        lineHeight: 14 + "px",
+                                        color: "#828282",
+                                        fontStyle: "italic",
+                                      }}
+                                    >
+                                      midjourney + me
+                                    </span>
+                                  </span>
+                                  <img
+                                    loading="lazy"
+                                    decoding="async"
+                                    align="right"
+                                    alt="Image"
+                                    border={0}
+                                    className="right mid-child autowidth"
+                                    src={handDrawn}
+                                    style={{
+                                      textDecoration: "none",
+                                      msInterpolationMode: "bicubic",
+                                      height: "auto",
+                                      border: "none",
+                                      width: "180",
+                                      maxWidth: 180,
+                                      float: "none",
+                                      display: "block",
+                                      margin: "0 100px",
+                                    }}
+                                    title="Image"
+                                    width={172}
+                                  />
+                                  <div className="last-child">
+                                    <span
+                                      className="end-text"
+                                      style={{
+                                        fontFamily:
+                                          "Merriweather,Times,Times New Roman,serif",
+                                        fontWeight: "700",
+                                        fontSize: 12,
+                                        lineHeight: 19 + "px",
+                                        color: "#333",
+                                        display: "block",
+                                      }}
+                                    >
+                                      Why call it
+                                    </span>
+                                    <span
+                                      className="end-text end-text-bold"
+                                      style={{
+                                        fontFamily:
+                                          "Merriweather,Times,Times New Roman,serif",
+                                        fontWeight: "700",
+                                        fontSize: 12,
+                                        lineHeight: 19 + "px",
+                                        color: "#EB5757",
+                                      }}
+                                    >
+                                      The Scarlet Letter
+                                    </span>
+                                    <a
+                                      className="read-here-link"
+                                      href="https://icd-india.com/"
+                                      tabIndex={-1}
+                                      target="_blank"
+                                      style={{ display: "block", marginTop: 4 }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Merriweather,Times,Times New Roman,serif",
+                                          fontWeight: "400",
+                                          fontSize: 9,
+                                          lineHeight: 14 + "px",
+                                          color: "#333",
+                                          letterSpacing: 0.54 + "px",
+                                        }}
+                                      >
+                                        READ HERE
+                                      </span>
+                                    </a>
+                                  </div>
+                                </div>
+                                <img
+                                  loading="lazy"
+                                  decoding="async"
+                                  align="right"
+                                  alt="Image"
+                                  border={0}
+                                  className="right mobile-show autowidth"
+                                  src={handDrawn}
+                                  style={{
+                                    textDecoration: "none",
+                                    msInterpolationMode: "bicubic",
+                                    display: "block",
+                                    height: "auto",
+                                    border: "none",
+                                    width: "180",
+                                    maxWidth: 100 + "%",
+                                    float: "none",
+                                    display: "none",
+                                    margin: "24px 0 0",
+                                  }}
+                                  title="Image"
+                                  width={172}
+                                />
+                              </div>
+                              <hr
+                                class="wp-block-separator has-alpha-channel-opacity mobile-margin"
+                                style={{
+                                  margin: "24px 0",
+                                  borderTop: "1px dotted #333",
+                                }}
+                              ></hr>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ backgroundColor: "transparent" }}>
+                    <div
+                      className="block-grid"
+                      style={{
+                        margin: "0 auto",
+                        minWidth: 320,
+                        maxWidth: 650,
+                        overflowWrap: "break-word",
+                        wordWrap: "break-word",
+                        wordBreak: "break-word",
+                        backgroundColor: "transparent",
+                      }}
+                    >
+                      <div
+                        style={{
+                          borderCollapse: "collapse",
+                          display: "table",
+                          width: "100%",
+                          backgroundColor: "transparent",
+                        }}
+                      >
+                        <div
+                          className="col num12"
+                          style={{
+                            minWidth: 320,
+                            maxWidth: 650,
+                            display: "table-cell",
+                            verticalAlign: "top",
+                            width: 650,
+                          }}
+                        >
+                          <div style={{ width: "100% !important" }}>
+                            <div
+                              className="about-company midd-padding-zero"
+                              style={{
+                                borderTop: "0px solid transparent",
+                                borderLeft: "0px solid transparent",
+                                borderBottom: "0px solid transparent",
+                                borderRight: "0px solid transparent",
+                                paddingTop: 0,
+                                paddingBottom: 20,
+                                paddingRight: 30,
+                                paddingLeft: 30,
+                                background: "#F4F1EA",
+                              }}
+                            >
+                              <div
+                                className="about-company-text"
+                                style={{
+                                  color: "#171717",
+                                  fontFamily:
+                                    '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+                                  lineHeight: "1.2",
+                                  paddingTop: 0,
+                                  paddingBottom: 0,
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    fontFamily:
+                                      "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                                    fontSize: 12,
+                                    lineHeight: "1.2",
+                                    color: "#171717",
+                                    msoLineHeightAlt: 14,
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      fontSize: 20,
+                                      lineHeight: "1.2",
+                                      msoLineHeightAlt: 24,
+                                      margin: 0,
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Merriweather,Times,Times New Roman,serif",
+                                        fontWeight: "400",
+                                        fontSize: 17,
+                                        lineHeight: 24 + "px",
+                                      }}
+                                    >
+                                      <strong
+                                        style={{
+                                          fontFamily:
+                                            "Merriweather,Times,Times New Roman,serif",
+                                          fontWeight: "700",
+                                          fontSize: 17,
+                                          lineHeight: 27 + "px",
+                                        }}
+                                      >
+                                        ICD partners with enterprises ready to
+                                        become AI-first.
+                                      </strong>
+                                      <br />
+                                      We help businesses redesign the way they
+                                      work, decide, and grow through AI-led
+                                      product thinking, enterprise experience
+                                      design, and strategic brand communication.
+                                      For leaders looking to move beyond
+                                      experimentation, ICD turns AI into
+                                      systems, experiences, and advantages that
+                                      scale.
+                                    </span>
+                                  </p>
+                                </div>
+                              </div>
+                              <hr
+                                class="wp-block-separator has-alpha-channel-opacity"
+                                style={{
+                                  margin: "20px 0",
+                                  borderTop: "1px dotted #333",
+                                }}
+                              ></hr>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ backgroundColor: "transparent" }}>
+                    <div
+                      className="block-grid two-up"
+                      style={{
+                        margin: "0 auto",
+                        minWidth: 320,
+                        maxWidth: 650,
+                        overflowWrap: "break-word",
+                        wordWrap: "break-word",
+                        wordBreak: "break-word",
+                        backgroundColor: "#F4F1EA",
+                      }}
+                    >
+                      <div
+                        style={{
+                          borderCollapse: "collapse",
+                          display: "table",
+                          width: "100%",
+                          backgroundColor: "transparent",
+                        }}
+                      >
+                        <div
+                          className="col num6"
+                          style={{
+                            display: "table-cell",
+                            verticalAlign: "top",
+                            width: "36%",
+                          }}
+                        >
+                          <div
+                            className="block-grid"
+                            style={{
+                              margin: "0 auto",
+                              overflowWrap: "break-word",
+                              wordWrap: "break-word",
+                              wordBreak: "break-word",
+                              backgroundColor: "transparent",
+                            }}
+                          >
+                            <div
+                              style={{
+                                borderCollapse: "collapse",
+                                display: "table",
+                                width: "100%",
+                                backgroundColor: "transparent",
+                              }}
+                            >
+                              <div
+                                className="col num12"
+                                style={{
+                                  display: "table-cell",
+                                  verticalAlign: "top",
+                                }}
+                              >
+                                <div style={{ width: "100% !important" }}>
+                                  <div
+                                    className="lets-talk-btn"
+                                    style={{
+                                      borderTop: "0px solid transparent",
+                                      borderLeft: "0px solid transparent",
+                                      borderBottom: "0px solid transparent",
+                                      borderRight: "0px solid transparent",
+                                      paddingTop: 0,
+                                      paddingBottom: 13,
+                                      paddingRight: 30,
+                                      paddingLeft: 30,
+                                      background: "#F4F1EA",
+                                    }}
+                                  >
+                                    <div
+                                      align="left"
+                                      className="button-container"
+                                      style={{
+                                        paddingTop: 0,
+                                        paddingRight: 0,
+                                        paddingBottom: 0,
+                                        paddingLeft: 0,
+                                      }}
+                                    >
+                                      <a
+                                        className="lets-talk-head"
+                                        href="https://www.icdindia.com/contact/"
+                                        style={{
+                                          WebkitTextSizeAdjust: "none",
+                                          textDecoration: "none",
+                                          display: "inline-block",
+                                          color: "#171717",
+                                          backgroundColor: "transparent",
+                                          borderRadius: 4,
+                                          WebkitBorderRadius: 0,
+                                          MozBorderRadius: 4,
+                                          width: "auto",
+                                          borderTop: "1px solid transparent",
+                                          borderRight: "1px solid transparent",
+                                          borderBottom: "1px dotted #171717",
+                                          borderLeft: "1px solid transparent",
+                                          paddingTop: 0,
+                                          paddingBottom: 0,
+                                          fontFamily:
+                                            "Merriweather,Times,Times New Roman,serif",
+                                          textAlign: "center",
+                                          msoBorderAlt: "none",
+                                          wordBreak: "keep-all",
+                                        }}
+                                        target="_blank"
+                                      >
+                                        <span
+                                          style={{
+                                            fontSize: 24,
+                                            lineHeight: 31 + "px",
+                                            msoLineHeightAlt: 32,
+                                          }}
+                                        >
+                                          Let’s talk.
+                                        </span>
+                                      </a>
                                     </div>
-                                  <hr class="wp-block-separator has-alpha-channel-opacity" style={{margin : '20px 0' , borderTop: '1px dotted #333'}}></hr>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div style={{ width: "100% !important" }}>
+                            <div
+                              style={{
+                                borderTop: "0px solid transparent",
+                                borderLeft: "0px solid transparent",
+                                borderBottom: "0px solid transparent",
+                                borderRight: "0px solid transparent",
+                                paddingTop: 0,
+                                paddingBottom: 0,
+                                paddingRight: 0,
+                                paddingLeft: 0,
+                              }}
+                            >
+                              <table
+                                cellPadding={0}
+                                cellSpacing={0}
+                                className="social_icons"
+                                role="presentation"
+                                style={{
+                                  tableLayout: "fixed",
+                                  verticalAlign: "top",
+                                  borderSpacing: 0,
+                                  borderCollapse: "collapse",
+                                  msoTableLspace: "0pt",
+                                  msoTableRspace: "0pt",
+                                }}
+                                valign="top"
+                                width="100%"
+                              >
+                                <tbody>
+                                  <tr
+                                    style={{ verticalAlign: "top" }}
+                                    valign="top"
+                                  >
+                                    <td
+                                      className="social-icons-cont"
+                                      style={{
+                                        wordBreak: "break-word",
+                                        verticalAlign: "top",
+                                        paddingTop: 0,
+                                        paddingRight: 30,
+                                        paddingBottom: 0,
+                                        paddingLeft: 30,
+                                      }}
+                                      valign="top"
+                                    >
+                                      <table
+                                        className="social-icons"
+                                        activate="activate"
+                                        align="left"
+                                        alignment="alignment"
+                                        cellPadding={0}
+                                        cellSpacing={0}
+                                        role="presentation"
+                                        style={{
+                                          tableLayout: "fixed",
+                                          verticalAlign: "top",
+                                          borderSpacing: 0,
+                                          borderCollapse: "undefined",
+                                          msoTableTspace: 0,
+                                          msoTableRspace: 0,
+                                          msoTableBspace: 0,
+                                          msoTableLspace: 0,
+                                        }}
+                                        to="to"
+                                        valign="top"
+                                      >
+                                        <tbody>
+                                          <tr
+                                            align="left"
+                                            style={{
+                                              verticalAlign: "top",
+                                              display: "inline-block",
+                                              textAlign: "left",
+                                            }}
+                                            valign="top"
+                                          >
+                                            <td
+                                              style={{
+                                                wordBreak: "break-word",
+                                                verticalAlign: "top",
+                                                paddingBottom: 28,
+                                                paddingRight: 6,
+                                              }}
+                                              valign="top"
+                                            >
+                                              <a
+                                                href="https://www.linkedin.com/company/itu-chaudhuri-design"
+                                                target="_blank"
+                                              >
+                                                <img
+                                                  loading="lazy"
+                                                  decoding="async"
+                                                  alt="LinkedIn"
+                                                  height={20}
+                                                  src="https://images.ctfassets.net/da6fwo03rafe/0gn5lFziKqdXIWrehCWkZ/200e2ebae990ca9e64a69804794a32f2/Group.png"
+                                                  style={{
+                                                    textDecoration: "none",
+                                                    msInterpolationMode:
+                                                      "bicubic",
+                                                    height: "auto",
+                                                    border: "none",
+                                                    display: "block",
+                                                    width: 20 + "px",
+                                                  }}
+                                                  title="LinkedIn"
+                                                  width={20}
+                                                />
+                                              </a>
+                                            </td>
+                                            <td
+                                              style={{
+                                                wordBreak: "break-word",
+                                                verticalAlign: "top",
+                                                paddingBottom: 28,
+                                                paddingRight: 6,
+                                              }}
+                                              valign="top"
+                                            >
+                                              <a
+                                                href="https://www.instagram.com/ituchaudhuridesign"
+                                                target="_blank"
+                                              >
+                                                <img
+                                                  loading="lazy"
+                                                  decoding="async"
+                                                  alt="Instagram"
+                                                  height={20}
+                                                  src="https://images.ctfassets.net/da6fwo03rafe/5FiF2rVwJCwGICLnk5bU3W/6ce8d220e7e42865eadc86d7b3b23d1b/Group.png"
+                                                  style={{
+                                                    textDecoration: "none",
+                                                    msInterpolationMode:
+                                                      "bicubic",
+                                                    height: "auto",
+                                                    border: "none",
+                                                    display: "block",
+                                                    width: 20 + "px",
+                                                  }}
+                                                  title="Instagram"
+                                                  width={20}
+                                                />
+                                              </a>
+                                            </td>
+                                            <td
+                                              style={{
+                                                wordBreak: "break-word",
+                                                verticalAlign: "top",
+                                                paddingBottom: 28,
+                                                paddingRight: 6,
+                                              }}
+                                              valign="top"
+                                            >
+                                              <a
+                                                href="https://www.icdindia.com"
+                                                target="_blank"
+                                              >
+                                                <img
+                                                  loading="lazy"
+                                                  decoding="async"
+                                                  alt="www.icdindia.com"
+                                                  height={20}
+                                                  src="https://images.ctfassets.net/da6fwo03rafe/1AbiMRtS3XarONhIVNwTsU/5dc369f9d483a866a0a569dd8969b945/Group_5.png"
+                                                  style={{
+                                                    textDecoration: "none",
+                                                    msInterpolationMode:
+                                                      "bicubic",
+                                                    height: "auto",
+                                                    border: "none",
+                                                    display: "block",
+                                                    width: 20 + "px",
+                                                  }}
+                                                  title="Custom"
+                                                  width={20}
+                                                />
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col num6"
+                          style={{
+                            display: "table-cell",
+                            verticalAlign: "top",
+                            paddingRight: 30,
+                          }}
+                        >
+                          <div style={{ width: "100% !important" }}>
+                            <div
+                              style={{
+                                borderTop: "0px solid transparent",
+                                borderLeft: "0px solid transparent",
+                                borderBottom: "0px solid transparent",
+                                borderRight: "0px solid transparent",
+                                paddingTop: 0,
+                                paddingBottom: 5,
+                                paddingRight: 0,
+                                paddingLeft: 0,
+                              }}
+                            >
+                              <div
+                                className="subscribe-cont"
+                                style={{
+                                  color: "#171717",
+                                  fontFamily:
+                                    "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                                  lineHeight: "1.2",
+                                  paddingTop: 0,
+                                  paddingRight: 30,
+                                  paddingBottom: 0,
+                                  paddingLeft: 0,
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    fontFamily:
+                                      "Merriweather,Times,Times New Roman,serif",
+                                    fontSize: 12,
+                                    lineHeight: "1.2",
+                                    color: "#171717",
+                                    msoLineHeightAlt: 14,
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      fontFamily:
+                                        "Merriweather,Times,Times New Roman,serif",
+                                      fontSize: 12,
+                                      lineHeight: 16 + "px",
+                                      msoLineHeightAlt: 17,
+                                      margin: 0,
+                                      width: 410 + "px",
+                                    }}
+                                  >
+                                    You are receiving this newsletter because
+                                    you have subscribed or have been recommended
+                                    by a friend. If you'd like to add new
+                                    subscribers, please click{" "}
+                                    <a
+                                      href="https://icd-india.com/newsletter-subscription"
+                                      tabIndex={-1}
+                                      target="_blank"
+                                    >
+                                      here
+                                    </a>
+                                    .<br /> And to unfollow, please click on the
+                                    unsubscribe link.{" "}
+                                    <a href="{{ unsubscribe }}">Unsubscribe</a>
+                                  </p>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div style={{backgroundColor: 'transparent'}}>
-                        <div className="block-grid two-up" style={{margin: '0 auto', minWidth: 320, maxWidth: 650, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', backgroundColor: '#F4F1EA'}}>
-                          <div style={{borderCollapse: 'collapse', display: 'table', width: '100%', backgroundColor: 'transparent'}}>
-                            <div className="col num6" style={{ display: 'table-cell', verticalAlign: 'top' , width: '36%'}}>
-                              <div className="block-grid" style={{margin: '0 auto',overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', backgroundColor: 'transparent'}}>
-                                <div style={{borderCollapse: 'collapse', display: 'table', width: '100%', backgroundColor: 'transparent'}}>
-                                  <div className="col num12" style={{display: 'table-cell', verticalAlign: 'top'}}>
-                                    <div style={{width: '100% !important'}}>
-                                      <div className="lets-talk-btn" style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 13, paddingRight: 30, paddingLeft: 30, background: '#F4F1EA'}}>
-                                        <div align="left" className="button-container" style={{paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0}}>
-                                          <a className="lets-talk-head" href="https://www.icdindia.com/contact/" style={{WebkitTextSizeAdjust: 'none', textDecoration: 'none', display: 'inline-block', color: '#171717', backgroundColor: 'transparent', borderRadius: 4, WebkitBorderRadius: 0, MozBorderRadius: 4, width: 'auto', borderTop: '1px solid transparent', borderRight: '1px solid transparent', borderBottom: '1px dotted #171717', borderLeft: '1px solid transparent', paddingTop: 0, paddingBottom: 0, fontFamily: 'Merriweather,Times,Times New Roman,serif', textAlign: 'center', msoBorderAlt: 'none', wordBreak: 'keep-all'}} target="_blank">
-                                              <span style={{fontSize: 24, lineHeight: 31+'px', msoLineHeightAlt: 32}}>Let’s talk.</span>
-                                          </a>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div style={{width: '100% !important'}}>
-                                <div style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 0, paddingRight: 0, paddingLeft: 0}}>
-                                  <table cellPadding={0} cellSpacing={0} className="social_icons" role="presentation" style={{tableLayout: 'fixed', verticalAlign: 'top', borderSpacing: 0, borderCollapse: 'collapse', msoTableLspace: '0pt', msoTableRspace: '0pt'}} valign="top" width="100%">
-                                    <tbody>
-                                                <tr style={{verticalAlign: 'top'}} valign="top">
-                                                  <td className="social-icons-cont" style={{wordBreak: 'break-word', verticalAlign: 'top', paddingTop: 0, paddingRight: 30, paddingBottom: 0, paddingLeft: 30}} valign="top">
-                                                    <table className="social-icons" activate="activate" align="left" alignment="alignment" cellPadding={0} cellSpacing={0} role="presentation" style={{tableLayout: 'fixed', verticalAlign: 'top', borderSpacing: 0, borderCollapse: 'undefined', msoTableTspace: 0, msoTableRspace: 0, msoTableBspace: 0, msoTableLspace: 0}} to="to" valign="top">
-                                                      <tbody>
-                                                        <tr align="left" style={{verticalAlign: 'top', display: 'inline-block', textAlign: 'left'}} valign="top">
-                                                          <td style={{wordBreak: 'break-word', verticalAlign: 'top', paddingBottom: 28, paddingRight: 6}} valign="top"><a href="https://www.linkedin.com/company/itu-chaudhuri-design" target="_blank"><img loading="lazy" decoding="async" alt="LinkedIn" height={32} src="https://images.ctfassets.net/da6fwo03rafe/0gn5lFziKqdXIWrehCWkZ/200e2ebae990ca9e64a69804794a32f2/Group.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', display: 'block', width: 30+'px'}} title="LinkedIn" width={32} /></a></td>
-                                                          <td style={{wordBreak: 'break-word', verticalAlign: 'top', paddingBottom: 28, paddingRight: 6}} valign="top"><a href="https://www.instagram.com/ituchaudhuridesign" target="_blank"><img loading="lazy" decoding="async" alt="Instagram" height={32} src="https://images.ctfassets.net/da6fwo03rafe/5FiF2rVwJCwGICLnk5bU3W/6ce8d220e7e42865eadc86d7b3b23d1b/Group.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', display: 'block', width: 30+'px'}} title="Instagram" width={32} /></a></td>
-                                                          <td style={{wordBreak: 'break-word', verticalAlign: 'top', paddingBottom: 28, paddingRight: 6}} valign="top"><a href="https://www.icdindia.com" target="_blank"><img loading="lazy" decoding="async" alt="www.icdindia.com" height={32} src="https://images.ctfassets.net/da6fwo03rafe/1AbiMRtS3XarONhIVNwTsU/5dc369f9d483a866a0a569dd8969b945/Group_5.png" style={{textDecoration: 'none', msInterpolationMode: 'bicubic', height: 'auto', border: 'none', display: 'block', width: 30+'px'}} title="Custom" width={32} /></a></td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                                  </td>
-                                                </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col num6" style={{display: 'table-cell', verticalAlign: 'top', paddingRight: 30}}>
-                              <div style={{width: '100% !important'}}>
-                                <div style={{borderTop: '0px solid transparent', borderLeft: '0px solid transparent', borderBottom: '0px solid transparent', borderRight: '0px solid transparent', paddingTop: 0, paddingBottom: 5, paddingRight: 0, paddingLeft: 0}}>
-                                  <div className="subscribe-cont" style={{color: '#171717', fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif', lineHeight: '1.2', paddingTop: 0, paddingRight: 30, paddingBottom: 0, paddingLeft: 0}}>
-                                    <div style={{fontFamily: 'Merriweather,Times,Times New Roman,serif', fontSize: 12, lineHeight: '1.2', color: '#171717', msoLineHeightAlt: 14}}>
-                                      <p style={{ fontFamily: 'Merriweather,Times,Times New Roman,serif' ,fontSize: 12, lineHeight: 16+'px', msoLineHeightAlt: 17, margin: 0 , width: 410+'px'}}>You are receiving this newsletter because you have subscribed or have been recommended by a friend. If you'd like to add new subscribers, please click <a href="https://icd-india.com/newsletter-subscription" tabIndex={-1} target="_blank">here</a>.<br /> And to unfollow, please click on the unsubscribe link. <a href="{{ unsubscribe }}">Unsubscribe</a></p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </body>
-          </div>
-          <button onClick={copyElem} style={{position: 'fixed', top: 10, right: 10, zIndex: 9999, padding: '8px 16px', cursor: 'pointer'}}>
-            Copy HTML
-          </button>
-          <div className="copyField"></div>
-          
-      </>
-    )
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </body>
+      </div>
+      <button
+        onClick={copyElem}
+        style={{
+          position: "fixed",
+          top: 10,
+          right: 10,
+          zIndex: 9999,
+          padding: "8px 16px",
+          cursor: "pointer",
+        }}
+      >
+        Copy HTML
+      </button>
+      <div className="copyField"></div>
+    </>
+  );
 }
 
-
-  
 export async function getServerSideProps({ params }) {
-  const article = await getArticle(params.slug)
-  const rawContent = article.newsletter?.content ?? '';
+  const article = await getArticle(params.slug);
+  const rawContent = article.newsletter?.content ?? "";
 
   const emailStyles = `
     <style>
       body { margin: 0; padding: 0; }
-      hr { margin: 20px 0; border-top: 1px dotted #333; }
+      hr { margin: 24px 0; border-top: 1px dotted #333; }
       b, strong { font-weight: bold !important; }
       blockquote { margin: 0; width: 350px; margin-left: auto; margin-right: auto; }
       blockquote p { margin: 0; }
       img { width: 100%; height: auto; }
       table img { display: block; width: 100%; }
-      ul { margin: 0 }
+      ul { margin: 0 0 24px, padding-inline-start: 10px }
       table, td, tr { vertical-align: top; border-collapse: collapse; }
-      p {font-size: 16px; line-height: 27px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; margin-top: 8px; margin-bottom: 0; font-weight:400 }
-      h2 { font-size: 18px; line-height: 25px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 12px 0 0; }
-      li { font-size: 16px; line-height: 27px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; }
+      p {font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; margin-top: 8px; margin-bottom: 0; font-weight:400 }
+      h2 { font-size: 17px; line-height: 160%; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 24px 0 0; }
+      h3 { font-size: 17px; line-height: 160%; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 24px 0 0; height: 22px; }
+      li { font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; }
       blockquote p em { font-size: 24px; line-height: 31px; color: #333; letter-spacing: -0.24px; }
       strong, b { font-weight: bold; }
       figure { margin: 0; }
-      ul {margin: 0}
+      ul {margin: 0 0 24px, padding-inline-start: 10px}
       figure img { width: 100%; height: auto; display: block; }
       p code { display: table;font-style: italic; font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin-top: 22px; margin-bottom: 22px;  }
     </style>
   `;
 
-
-
   const inlinedContent = juice(emailStyles + rawContent);
   // mediaQueries appended after — not touched by juice
   // const finalHtml = mediaQueries + inlinedContent;
   return {
-    props: { 
-        slug: params.slug,   // 👈 pass it here
-        newsletter: {
+    props: {
+      slug: params.slug, // 👈 pass it here
+      newsletter: {
         ...article.newsletter,
-        content: inlinedContent  // ✅ styles already inlined
+        content: inlinedContent, // ✅ styles already inlined
       },
     },
-    // revalidate: 2, 
-  }
+    // revalidate: 2,
+  };
 }
