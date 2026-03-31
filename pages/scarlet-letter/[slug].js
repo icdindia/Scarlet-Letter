@@ -1216,7 +1216,7 @@ a:visited {
                                         fontFamily:
                                           "Merriweather,Times,Times New Roman,serif",
                                         fontWeight: "400",
-                                        fontSize: 17,
+                                        fontSize: 16,
                                         lineHeight: 24 + "px",
                                       }}
                                     >
@@ -1226,7 +1226,7 @@ a:visited {
                                             "Merriweather,Times,Times New Roman,serif",
                                           fontWeight: "700",
                                           fontSize: 17,
-                                          lineHeight: 27 + "px",
+                                          lineHeight: 27.2 + "px",
                                         }}
                                       >
                                         ICD partners with enterprises ready to
