@@ -1216,26 +1216,37 @@ a:visited {
                                       lineHeight: 24 + "px",
                                     }}
                                   >
-                                    <strong
+                                    <span
                                       style={{
                                         fontFamily:
                                           "Merriweather,Times,Times New Roman,serif",
-                                        fontWeight: "700",
-                                        fontSize: 17,
-                                        lineHeight: 27.2 + "px",
+                                        fontWeight: "400",
+                                        fontSize: 16,
+                                        lineHeight: 24 + "px",
                                       }}
                                     >
-                                      ICD partners with enterprises ready to
-                                      become AI-first.
-                                    </strong>
-                                    <br />
-                                    We help businesses redesign the way they
-                                    work, decide, and grow through AI-led
-                                    product thinking, enterprise experience
-                                    design, and strategic brand communication.
-                                    For leaders looking to move beyond
-                                    experimentation, ICD turns AI into systems,
-                                    experiences, and advantages that scale.
+                                      <strong
+                                        style={{
+                                          fontFamily:
+                                            "Merriweather,Times,Times New Roman,serif",
+                                          fontWeight: "700",
+                                          fontSize: 17,
+                                          lineHeight: 27.2 + "px",
+                                        }}
+                                      >
+                                        ICD partners with enterprises ready to
+                                        become AI-first.
+                                      </strong>
+                                      <br />
+                                      We help businesses redesign the way they
+                                      work, decide, and grow through AI-led
+                                      product thinking, enterprise experience
+                                      design, and strategic brand communication.
+                                      For leaders looking to move beyond
+                                      experimentation, ICD turns AI into
+                                      systems, experiences, and advantages that
+                                      scale.
+                                    </span>
                                   </p>
                                 </div>
                               </div>
