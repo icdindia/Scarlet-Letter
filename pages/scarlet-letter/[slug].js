@@ -958,7 +958,7 @@ a:visited {
                                 borderBottom: "0px solid transparent",
                                 borderRight: "0px solid transparent",
                                 paddingTop: 0,
-                                paddingBottom: 16,
+                                paddingBottom: 30,
                                 paddingRight: 30,
                                 paddingLeft: 30,
                                 background: "#F4F1EA",
