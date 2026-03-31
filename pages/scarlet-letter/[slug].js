@@ -1681,7 +1681,7 @@ export async function getServerSideProps({ params }) {
       blockquote p { margin: 0; }
       img { width: 100%; height: auto; }
       table img { display: block; width: 100%; }
-      ul { margin: 0 0 24px, padding-inline-start: 10px }
+      ul { margin: 0 0 24px !important; padding-inline-start: 24px !important;}
       table, td, tr { vertical-align: top; border-collapse: collapse; }
       p {font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; margin-top: 8px; margin-bottom: 0; font-weight:400 }
       h2 { font-size: 17px; line-height: 160%; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 24px 0 0; }
@@ -1690,7 +1690,7 @@ export async function getServerSideProps({ params }) {
       blockquote p em { font-size: 24px; line-height: 31px; color: #333; letter-spacing: -0.24px; }
       strong, b { font-weight: bold; }
       figure { margin: 0; }
-      ul {margin: 0 0 24px, padding-inline-start: 10px}
+      ul {margin: 0 0 24px !important; padding-inline-start: 24px !important;}
       figure img { width: 100%; height: auto; display: block; }
       p code { display: table;font-style: italic; font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin-top: 22px; margin-bottom: 22px;  }
     </style>
