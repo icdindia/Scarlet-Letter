@@ -193,7 +193,7 @@ h2 {
 h3 {
   margin: 24px 0 0;
   font-size: 17px;
-  line-height: 160%;
+  line-height: 1;
   font-family: Merriweather, Times, "Times New Roman", serif;
   color: rgb(51, 51, 51);
   
@@ -585,6 +585,10 @@ a:visited {
   }
   .mobile-show {display: block !important;}
   .mobile-margin{margin-bottom: 0 !important;}
+
+  h3 {
+    line-height: 160%;
+  }
 }
 `,
             }}
@@ -1685,7 +1689,7 @@ export async function getServerSideProps({ params }) {
       table, td, tr { vertical-align: top; border-collapse: collapse; }
       p {font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; margin-top: 8px; margin-bottom: 0; font-weight:400 }
       h2 { font-size: 17px; line-height: 160%; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 24px 0 0; }
-      h3 { font-size: 17px; line-height: 160%; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 24px 0 0;  }
+      h3 { font-size: 17px; line-height: 1; font-family: Merriweather, Times, 'Times New Roman', serif; color: #333; margin: 24px 0 0;  }
       li { font-size: 16px; line-height: 24px; font-family: Merriweather, Times, 'Times New Roman', serif; color: #171717; }
       blockquote p em { font-size: 24px; line-height: 31px; color: #333; letter-spacing: -0.24px; }
       strong, b { font-weight: bold; }
