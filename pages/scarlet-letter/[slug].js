@@ -1209,43 +1209,33 @@ a:visited {
                                 >
                                   <p
                                     style={{
-                                      fontSize: 20,
-                                      lineHeight: "1.2",
-                                      msoLineHeightAlt: 24,
-                                      margin: 0,
+                                      fontFamily:
+                                        "Merriweather,Times,Times New Roman,serif",
+                                      fontWeight: "400",
+                                      fontSize: 16,
+                                      lineHeight: 24 + "px",
                                     }}
                                   >
-                                    <span
+                                    <strong
                                       style={{
                                         fontFamily:
                                           "Merriweather,Times,Times New Roman,serif",
-                                        fontWeight: "400",
-                                        fontSize: 16,
-                                        lineHeight: 24 + "px",
+                                        fontWeight: "700",
+                                        fontSize: 17,
+                                        lineHeight: 27.2 + "px",
                                       }}
                                     >
-                                      <strong
-                                        style={{
-                                          fontFamily:
-                                            "Merriweather,Times,Times New Roman,serif",
-                                          fontWeight: "700",
-                                          fontSize: 17,
-                                          lineHeight: 27.2 + "px",
-                                        }}
-                                      >
-                                        ICD partners with enterprises ready to
-                                        become AI-first.
-                                      </strong>
-                                      <br />
-                                      We help businesses redesign the way they
-                                      work, decide, and grow through AI-led
-                                      product thinking, enterprise experience
-                                      design, and strategic brand communication.
-                                      For leaders looking to move beyond
-                                      experimentation, ICD turns AI into
-                                      systems, experiences, and advantages that
-                                      scale.
-                                    </span>
+                                      ICD partners with enterprises ready to
+                                      become AI-first.
+                                    </strong>
+                                    <br />
+                                    We help businesses redesign the way they
+                                    work, decide, and grow through AI-led
+                                    product thinking, enterprise experience
+                                    design, and strategic brand communication.
+                                    For leaders looking to move beyond
+                                    experimentation, ICD turns AI into systems,
+                                    experiences, and advantages that scale.
                                   </p>
                                 </div>
                               </div>
