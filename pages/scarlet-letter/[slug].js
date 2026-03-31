@@ -1209,11 +1209,7 @@ a:visited {
                                 >
                                   <p
                                     style={{
-                                      fontFamily:
-                                        "Merriweather,Times,Times New Roman,serif",
-                                      fontWeight: "400",
-                                      fontSize: 16,
-                                      lineHeight: 24 + "px",
+                                      margin: 0,
                                     }}
                                   >
                                     <span
