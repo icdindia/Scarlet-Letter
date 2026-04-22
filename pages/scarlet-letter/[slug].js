@@ -176,6 +176,9 @@ strong {
 blockquote {
   width: 350px;
   margin: 0 auto;
+  border-left: none !important;
+  padding-left: 0 !important;
+  word-break: break-word !important;
 }
 
 blockquote p {
@@ -476,6 +479,14 @@ a:visited {
 
   .newsletter-title {
     padding: 0 0 17px !important;
+    
+  }
+
+  .newsletter-titleWrapper {
+    padding-left: 20px !important;
+  }
+  .iconWrapper {
+    padding-right: 20px !important;
   }
 
   .article-meta {
@@ -568,12 +579,12 @@ a:visited {
   .newsletter-container { padding: 12px !important; }
   .newsletter-title { padding: 0 !important; }
   .letter-upper-body{padding: 0 !important;}
-  .letter-text { padding: 16px !important; }
+  .letter-text { padding: 24px 16px 16px !important; }
   .about-company { padding: 20px 16px !important; }
   .lets-talk-btn { padding: 0 16px 0 !important; width: 70% !important; }
   .social-icons-cont { padding: 16px !important; width: 100% !important; }
   .subscribe-cont { padding: 20px 16px 40px !important; }
-  blockquote { width: 100% !important; }
+  blockquote { width: 100% !important; border-left: none !important; padding-left: 0 !important; word-break: break-word; }
   .social-icons td { padding-right: 10px !important; }
   .subscribe-cont p{ width: 100% !important;}
 
@@ -677,6 +688,7 @@ a:visited {
                                 paddingRight: 30,
                                 paddingLeft: 30,
                               }}
+                              className="newsletter-titleWrapper"
                             >
                               <div
                                 style={{
@@ -684,10 +696,10 @@ a:visited {
                                   fontFamily:
                                     "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                                   lineHeight: "1.2",
-                                  paddingTop: 40,
+                                  paddingTop: 0,
                                   paddingRight: 30,
                                   paddingBottom: 0,
-                                  paddingLeft: 30,
+                                  paddingLeft: 0,
                                 }}
                                 className="newsletter-title"
                               >
@@ -897,9 +909,9 @@ a:visited {
                                 "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                               lineHeight: "1.2",
                               paddingTop: 30,
-                              paddingRight: 30,
+                              paddingRight: 0,
                               paddingBottom: 0,
-                              paddingLeft: 30,
+                              paddingLeft: 0,
                               background: "#F4F1EA",
                             }}
                           >
@@ -1678,7 +1690,7 @@ export async function getServerSideProps({ params }) {
       body { margin: 0; padding: 0; }
       hr { margin: 24px 0; border-top: 1px dotted #333; }
       b, strong { font-weight: bold !important; }
-      blockquote { margin: 0; width: 350px; margin-left: auto; margin-right: auto; }
+      blockquote { margin: 0; width: 350px; margin-left: auto; margin-right: auto; border-left: none; }
       blockquote p { margin: 0; }
       img { width: 100%; height: auto; }
       table img { display: block; width: 100%; }
