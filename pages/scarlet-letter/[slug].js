@@ -528,6 +528,10 @@ a:visited {
     line-height: 22px !important;
     color: #171717 !important;
   }
+ 
+  .about-company-text p span strong {
+    font-size: 17px !important;
+  }
 
   .button-container {
     padding: 0 !important;
