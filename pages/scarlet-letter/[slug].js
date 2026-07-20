@@ -275,7 +275,7 @@ blockquote p em {
   width: 410px !important;
   font-family: Merriweather, Times, "Times New Roman", serif !important;
   letter-spacing: normal !important;
-  color: rgb(23, 23, 23) !important;
+  color: #333 !important;
   font-weight: 400 !important;
 }
 
@@ -528,6 +528,10 @@ a:visited {
     line-height: 22px !important;
     color: #171717 !important;
   }
+ 
+  .about-company-text p span strong {
+    font-size: 17px !important;
+  }
 
   .button-container {
     padding: 0 !important;
@@ -557,7 +561,7 @@ a:visited {
   .subscribe-cont p {
     font-size: 12px !important;
     letter-spacing: -0.08px !important;
-    color: #171717 !important;
+    color: #333 !important;
   }
 
   .the-yellow-envelope {
@@ -974,7 +978,7 @@ a:visited {
                                 borderBottom: "0px solid transparent",
                                 borderRight: "0px solid transparent",
                                 paddingTop: 0,
-                                paddingBottom: 30,
+                                paddingBottom: 0,
                                 paddingRight: 30,
                                 paddingLeft: 30,
                                 background: "#F4F1EA",
@@ -1603,7 +1607,7 @@ a:visited {
                               <div
                                 className="subscribe-cont"
                                 style={{
-                                  color: "#171717",
+                                  color: "#333",
                                   fontFamily:
                                     "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                                   lineHeight: "1.2",
@@ -1619,7 +1623,7 @@ a:visited {
                                       "Merriweather,Times,Times New Roman,serif",
                                     fontSize: 12,
                                     lineHeight: "1.2",
-                                    color: "#171717",
+                                    color: "#333",
                                     msoLineHeightAlt: 14,
                                   }}
                                 >
