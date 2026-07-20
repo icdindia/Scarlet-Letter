@@ -6,7 +6,7 @@
    4. -- /assets     : static files like images , videos , logo etc
    4. -- /styles     : Contains css files for pages and component
    4. -- /lib/api     : Contains api for pages data
-
+ 
 # How to use
 
 Install all the dependencies required by the Next to do that just run the command\
